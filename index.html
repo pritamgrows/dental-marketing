@@ -470,6 +470,15 @@
     footer p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
     footer a { color: var(--teal); text-decoration: none; }
 
+    /* ── FLOATING BUTTONS ── */
+    .wa-float { position: fixed; bottom: 1.5rem; left: 1.5rem; width: 56px; height: 56px; background-color: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 98; transition: transform 0.3s ease; }
+    .wa-float:hover { transform: translateY(-3px); }
+    
+    .scroll-btn-group { position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 98; }
+    .scroll-btn { width: 44px; height: 44px; background: var(--navy); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .scroll-btn:hover { background: var(--teal); transform: translateY(-2px); }
+    .scroll-btn svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-grid, .problem-grid, .case-grid, .benefits-grid,
@@ -496,7 +505,9 @@
       .container { padding: 0 1.25rem; }
       .solution-items { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      nav .nav-cta { display: none; }
+      .nav-logo { font-size: 1.1rem; }
+      .nav-cta { padding: 0.4rem 0.6rem; font-size: 0.7rem; display: inline-flex; }
+      .nav-cta svg { width: 12px; height: 12px; }
       .case-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
       .popup { padding: 1.75rem 1.25rem 1.25rem; }
       .popup h3 { font-size: 1.55rem; }
@@ -526,9 +537,9 @@
       .final-cta { padding: 4.5rem 0; }
       .final-cta h2 { font-size: clamp(2rem, 8vw, 3rem); }
       .btn-cta-large { width: 100%; justify-content: center; padding: 1.1rem 1.5rem; font-size: 0.92rem; }
+      .urgency-toast { white-space: normal; text-align: center; border-radius: 12px; left: 1rem; right: 1rem; bottom: 5.5rem; top: auto; transform: translateY(120px); width: calc(100% - 2rem); }
       .urgency-pill { font-size: 0.72rem; padding: 0.35rem 0.8rem; white-space: normal; text-align: center; }
       footer p { font-size: 0.72rem; }
-      .nav-logo { font-size: 1.2rem; }
       .tag { font-size: 0.65rem; }
       .hero-actions .btn-ghost { font-size: 0.85rem; }
       .follow-up-callout strong { font-size: 0.92rem; }
@@ -537,6 +548,11 @@
       .for-you-list li { font-size: 0.82rem; }
       .pain-agitation p { font-size: 0.92rem; }
       .pain-agitation span { font-size: 0.78rem; }
+      
+      .scroll-btn-group, .wa-float { bottom: 1rem; }
+      .wa-float { left: 1rem; width: 50px; height: 50px; }
+      .scroll-btn-group { right: 1rem; }
+      .scroll-btn { width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -727,6 +743,49 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="tag">Deliverables</div>
+        <h2>Five Systems That Turn<br>Your Clinic Into a Lead Machine</h2>
+        <p>Each component solves a specific conversion gap — together they replace guesswork with a repeatable process.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5A0" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Google &amp; Meta Ads Strategy</h3>
+          <div class="service-outcome">Brings patients who are already searching</div>
+          <p>Stop paying for random impressions. Every campaign targets people actively looking for dental treatment in your area right now.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5A0" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3>Landing Page</h3>
+          <div class="service-outcome">Converts visitors into booked appointments</div>
+          <p>Not your general website. A focused page with one goal: make the patient contact you — by call, WhatsApp, or form — within seconds of arriving.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5A0" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3>Lead Capture System</h3>
+          <div class="service-outcome">Removes every barrier between interest and enquiry</div>
+          <p>One-tap WhatsApp entry. No confusing forms, no lengthy steps — just a potential patient reaching out instantly.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5A0" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h3>Conversion-Focused Messaging</h3>
+          <div class="service-outcome">Makes your clinic the obvious local choice</div>
+          <p>Copy built around what dental patients actually need to hear before booking — trust, proximity, clarity, and the right offer.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5A0" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+          <h3>Follow-Up Framework</h3>
+          <div class="service-outcome">Saves the leads most clinics throw away</div>
+          <p>Most clinics lose leads not because patients weren't interested — but because no one followed up within 30 minutes. This fixes that permanently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CASE STUDY & SPEED TO LEAD -->
   <section class="case-study">
     <div class="container">
@@ -746,15 +805,15 @@
               <div class="case-stat-label">Ad spend</div>
             </div>
             <div class="case-stat">
-              <div class="case-stat-num">98</div>
+              <div class="case-stat-num">38</div>
               <div class="case-stat-label">Enquiries</div>
             </div>
             <div class="case-stat">
-              <div class="case-stat-num">34</div>
+              <div class="case-stat-num">14</div>
               <div class="case-stat-label">Appointments</div>
             </div>
             <div class="case-stat">
-              <div class="case-stat-num">₹1.6L+</div>
+              <div class="case-stat-num">₹1.2L+</div>
               <div class="case-stat-label">Potential Revenue</div>
             </div>
           </div>
@@ -1011,30 +1070,29 @@
   </section>
 
   <!-- FOUNDER NOTE -->
- <!-- FOUNDER NOTE -->
-<section class="founder-note reveal">
-  <div class="container">
-    <div class="founder-card">
-      <picture>
-        <source srcset="images/pritam-chowdhury-founder-meteor-media.webp" type="image/webp">
-        <img 
-          src="images/pritam-chowdhury-founder-meteor-media.jpg" 
-          alt="Pritam Chowdhury - helping dental clinics in India get consistent patient enquiries"
-          class="founder-img"
-          loading="lazy"
-        >
-      </picture>
-      <div class="founder-text">
-        <h3>Hi, I’m Pritam Chowdhury.</h3>
-        <p>
-          Most dental clinics don’t struggle because of ads — they struggle because there’s no system to consistently attract and convert patients.
-          <br><br>
-          That’s why I focus on building simple, local patient acquisition systems — not complicated marketing jargon.
-        </p>
+  <section class="founder-note reveal">
+    <div class="container">
+      <div class="founder-card">
+        <picture>
+          <source srcset="images/pritam-chowdhury-founder-meteor-media.webp" type="image/webp">
+          <img 
+            src="images/pritam-chowdhury-founder-meteor-media.jpg" 
+            alt="Pritam Chowdhury - helping dental clinics in India get consistent patient enquiries"
+            class="founder-img"
+            loading="lazy"
+          >
+        </picture>
+        <div class="founder-text">
+          <h3>Hi, I’m Pritam Chowdhury.</h3>
+          <p>
+            Most dental clinics don’t struggle because of ads — they struggle because there’s no system to consistently attract and convert patients.
+            <br><br>
+            That’s why I focus on building simple, local patient acquisition systems — not complicated marketing jargon.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- FINAL CTA -->
   <section class="final-cta">
@@ -1059,6 +1117,21 @@
       <p>© 2026 <a href="#">Meteor Media</a> · Dental Patient Acquisition · <a href="https://wa.me/7001225654" target="_blank">WhatsApp</a></p>
     </div>
   </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/7001225654?text=Hi%20Pritam%2C%20I'd%20like%20a%20free%20patient%20acquisition%20plan." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.405-.272.33-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .1 5.392.1 11.951c0 2.096.546 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.95-5.392 11.952-11.954a11.82 11.82 0 00-3.538-8.423z"/></svg>
+  </a>
+
+  <!-- FLOATING SCROLL BUTTONS -->
+  <div class="scroll-btn-group">
+    <button class="scroll-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" aria-label="Scroll to bottom">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </button>
+  </div>
 
   <script>
     // Reveal on scroll
