@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <link rel="icon" type="image/png" href="favicon.png">
-<link rel="shortcut icon" href="favicon.ico">
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meteor Media — 30–40 New Patient Enquiries in 30 Days</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -172,7 +169,7 @@
     .urgency-toast.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: none; }
     .urgency-toast strong { color: var(--gold-light); }
     @media (max-width: 600px) {
-      .urgency-toast { white-space: normal; text-align: center; border-radius: 12px; left: 1rem; right: 1rem; transform: translateY(120px); width: calc(100% - 2rem); }
+      .urgency-toast { white-space: normal; text-align: center; border-radius: 12px; left: 1rem; right: 1rem; bottom: 5.5rem; top: auto; transform: translateY(120px); width: calc(100% - 2rem); }
       .urgency-toast.visible { transform: translateY(0); }
     }
 
@@ -281,27 +278,24 @@
     }
     .pain-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
 
-    /* ── SOLUTION ── */
-    .solution { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
-    .solution::after {
-      content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(14,165,160,0.08) 0%, transparent 65%);
-      bottom: -200px; right: -150px; pointer-events: none;
-    }
-    .solution .section-header h2 { color: #fff; }
-    .solution .section-header p { color: rgba(255,255,255,0.6); }
+    /* ── SYSTEM V2 (9 Steps) ── */
+    .system-v2 { background: var(--navy); color: #fff; position: relative; overflow: hidden; padding: 8rem 0; }
+    .system-v2::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(14,165,160,0.06) 0%, transparent 65%); top: -200px; right: -200px; pointer-events: none; }
+    .system-v2 .section-header h2 { color: #fff; }
+    .system-v2 .section-header p { color: rgba(255,255,255,0.65); max-width: 600px; margin: 1rem auto 0; line-height: 1.7; font-weight: 300; }
 
-    .solution-items {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
-      background: rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-    .solution-item { background: rgba(255,255,255,0.03); padding: 2rem 1.75rem; transition: background 0.25s; }
-    .solution-item:hover { background: rgba(14,165,160,0.08); }
-    .solution-item-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: rgba(14,165,160,0.3); line-height: 1; margin-bottom: 0.75rem; }
-    .solution-item h3 { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-    .solution-item .outcome { font-size: 0.75rem; color: var(--teal-light); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.5rem; text-transform: uppercase; }
-    .solution-item p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; }
+    .system-phases { display: flex; flex-direction: column; gap: 4rem; position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+    .phase-block { display: flex; flex-direction: column; gap: 1.5rem; }
+    .phase-title { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); display: flex; align-items: center; gap: 1.5rem; }
+    .phase-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
+    .system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .sys-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 2.25rem 2rem; transition: background 0.3s, border-color 0.3s, transform 0.3s; display: flex; flex-direction: column; height: 100%; }
+    .sys-card:hover { background: rgba(14,165,160,0.06); border-color: rgba(14,165,160,0.3); transform: translateY(-2px); }
+    .sys-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: rgba(14,165,160,0.3); line-height: 1; margin-bottom: 1.25rem; }
+    .sys-content h3 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+    .sys-outcome { font-size: 0.78rem; color: var(--teal-light); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.85rem; text-transform: uppercase; }
+    .sys-content p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin: 0; font-weight: 300; }
 
     /* ── SERVICES ── */
     .services { background: var(--cream); }
@@ -487,7 +481,7 @@
     @media (max-width: 900px) {
       .hero-grid, .problem-grid, .case-grid, .benefits-grid,
       .authority-inner, .nfy-grid, .pricing-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .solution-items { grid-template-columns: 1fr 1fr; }
+      .system-grid { grid-template-columns: 1fr 1fr; }
       .process-steps { grid-template-columns: 1fr; gap: 2rem; }
       .process-steps::before { display: none; }
       .hero-img-wrap img { height: 320px; }
@@ -507,7 +501,9 @@
 
     @media (max-width: 600px) {
       .container { padding: 0 1.25rem; }
-      .solution-items { grid-template-columns: 1fr; }
+      .system-grid { grid-template-columns: 1fr; }
+      .system-phases { gap: 3rem; }
+      .sys-card { padding: 1.75rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .nav-logo { font-size: 1.1rem; }
       .nav-cta { padding: 0.4rem 0.6rem; font-size: 0.7rem; display: inline-flex; }
@@ -525,7 +521,6 @@
       .section-header p { font-size: 0.95rem; }
       .problem-statement { font-size: clamp(1.45rem, 6vw, 1.9rem); }
       .pain-list li { font-size: 0.88rem; padding: 0.9rem 1rem; }
-      .solution-item { padding: 1.5rem 1.25rem; }
       .case-card { padding: 1.75rem 1.5rem; }
       .case-stat-num { font-size: 1.6rem; }
       .benefits-quote p { font-size: 1.3rem; }
@@ -562,7 +557,6 @@
 </head>
 <body>
 
-  <!-- POPUP -->
   <div class="popup-overlay" id="popup-overlay">
     <div class="popup">
       <button class="popup-close" onclick="closePopup()">×</button>
@@ -582,7 +576,6 @@
     </div>
   </div>
 
-  <!-- NAV -->
   <nav id="main-nav">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">Meteor<span>Media</span></a>
@@ -593,12 +586,10 @@
     </div>
   </nav>
 
-  <!-- URGENCY TOAST (appears after scroll) -->
   <div class="urgency-toast" id="urgency-toast">
     ⚡ <strong>Limited spots this month</strong> — Only 1–2 clinics per city to avoid lead overlap.
   </div>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -661,7 +652,6 @@
     </div>
   </header>
 
-  <!-- PROBLEM -->
   <section class="problem">
     <div class="container">
       <div class="problem-grid">
@@ -698,56 +688,110 @@
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section class="solution">
+  <section class="system-v2">
     <div class="container">
       <div class="section-header reveal">
-        <div class="tag" style="border-color:rgba(14,165,160,0.5);">The System</div>
-        <h2>A Complete Patient Acquisition<br>System — Not Just Ads</h2>
-        <p>Every piece is designed to work together to turn local searches into booked appointments.</p>
+        <div class="tag" style="border-color:rgba(14,165,160,0.5);">The Lifecycle System</div>
+        <h2>A Complete Patient Acquisition<br>&amp; Retention System</h2>
+        <p>Not just ads. A fully automated 9-step lifecycle that turns local searches into booked appointments, prevents no-shows, and drives repeat visits.</p>
       </div>
-      <div class="solution-items reveal reveal-delay-1">
-        <div class="solution-item">
-          <div class="solution-item-num">01</div>
-          <h3>Google &amp; Meta Campaigns</h3>
-          <div class="outcome">→ Reaches people actively searching for dental care</div>
-          <p>Targeted at local people with real treatment intent — not just impressions.</p>
+
+      <div class="system-phases">
+        
+        <div class="phase-block reveal reveal-delay-1">
+          <div class="phase-title">Phase 1: Attraction &amp; Capture</div>
+          <div class="system-grid">
+            <div class="sys-card">
+              <div class="sys-num">01</div>
+              <div class="sys-content">
+                <h3>Hyper-Local Ad Campaigns</h3>
+                <div class="sys-outcome">→ Attracts high-intent local patients</div>
+                <p>We bypass generic traffic and target people actively searching for dental treatments in your specific pincode right now.</p>
+              </div>
+            </div>
+            <div class="sys-card">
+              <div class="sys-num">02</div>
+              <div class="sys-content">
+                <h3>High-Converting Landing Page</h3>
+                <div class="sys-outcome">→ Turns ad clicks into direct enquiries</div>
+                <p>Unlike a standard website, this page is built for one purpose: removing friction so potential patients contact you immediately.</p>
+              </div>
+            </div>
+            <div class="sys-card" style="border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.03);">
+              <div class="sys-num" style="color: var(--gold-light);">03</div>
+              <div class="sys-content">
+                <h3>Instant Response System</h3>
+                <div class="sys-outcome" style="color: var(--gold-light);">→ Replies to every lead within seconds</div>
+                <p>The moment a patient enquires, they receive an immediate WhatsApp message. No waiting, no wondering — capturing them before they call another clinic.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="solution-item">
-          <div class="solution-item-num">02</div>
-          <h3>Local Area Targeting</h3>
-          <div class="outcome">→ Patients from your pincode, not just your city</div>
-          <p>Hyperlocal reach so every rupee goes to someone who can actually visit your clinic.</p>
+
+        <div class="phase-block reveal reveal-delay-2">
+          <div class="phase-title">Phase 2: Conversion &amp; Show-Up</div>
+          <div class="system-grid">
+            <div class="sys-card">
+              <div class="sys-num">04</div>
+              <div class="sys-content">
+                <h3>Appointment Booking Flow</h3>
+                <div class="sys-outcome">→ Books slots easily without friction</div>
+                <p>Patients can pick an available slot online at their convenience, even at midnight, eliminating endless phone tag with your front desk.</p>
+              </div>
+            </div>
+            <div class="sys-card">
+              <div class="sys-num">05</div>
+              <div class="sys-content">
+                <h3>Reminder &amp; No-Show Reduction</h3>
+                <div class="sys-outcome">→ Protects your daily chair time</div>
+                <p>Automated reminders with Google Maps links are sent before the visit, drastically reducing forgotten appointments and wasted slots.</p>
+              </div>
+            </div>
+            <div class="sys-card">
+              <div class="sys-num">06</div>
+              <div class="sys-content">
+                <h3>Follow-Up Structure</h3>
+                <div class="sys-outcome">→ Recovers hesitant leads who went cold</div>
+                <p>A proven communication framework that reaches back out to prospects who enquired but didn't book, recovering 30–50% of lost leads.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="solution-item">
-          <div class="solution-item-num">03</div>
-          <h3>High-Converting Landing Page</h3>
-          <div class="outcome">→ Turns clicks into calls within seconds</div>
-          <p>Built for one purpose: make a potential patient contact you immediately.</p>
+
+        <div class="phase-block reveal reveal-delay-3">
+          <div class="phase-title">Phase 3: Retention &amp; Scaling</div>
+          <div class="system-grid">
+            <div class="sys-card">
+              <div class="sys-num">07</div>
+              <div class="sys-content">
+                <h3>Review &amp; Reputation Growth</h3>
+                <div class="sys-outcome">→ Builds local trust automatically</div>
+                <p>After their visit, a polite automated request asks happy patients for a review, boosting your clinic's organic ranking without manual effort.</p>
+              </div>
+            </div>
+            <div class="sys-card" style="border-color: rgba(14,165,160,0.3); background: rgba(14,165,160,0.05);">
+              <div class="sys-num" style="color: var(--teal-light);">08</div>
+              <div class="sys-content">
+                <h3>Patient Reactivation System</h3>
+                <div class="sys-outcome" style="color: var(--teal-light);">→ Generates reliable recurring revenue</div>
+                <p>Six months later, a re-engagement message automatically invites past patients back for check-ups, driving repeat visits effortlessly.</p>
+              </div>
+            </div>
+            <div class="sys-card">
+              <div class="sys-num">09</div>
+              <div class="sys-content">
+                <h3>Tracking &amp; Optimisation</h3>
+                <div class="sys-outcome">→ Keeps your patient cost dropping</div>
+                <p>A total visibility dashboard tracks exactly how many leads book and convert, allowing us to continuously refine the system for better ROI.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="solution-item">
-          <div class="solution-item-num">04</div>
-          <h3>WhatsApp Lead Flow</h3>
-          <div class="outcome">→ Enquiries land directly in your inbox</div>
-          <p>No forms, no friction. Prospects message you in one tap from any device.</p>
-        </div>
-        <div class="solution-item">
-          <div class="solution-item-num">05</div>
-          <h3>Follow-Up Structure</h3>
-          <div class="outcome">→ Recovers 30–50% of leads that go cold</div>
-          <p>A framework to respond fast and convert hesitant enquiries into booked slots.</p>
-        </div>
-        <div class="solution-item">
-          <div class="solution-item-num">06</div>
-          <h3>Tracking &amp; Optimisation</h3>
-          <div class="outcome">→ Every rupee accountable</div>
-          <p>Results monitored and refined so cost-per-lead keeps dropping over time.</p>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="services">
     <div class="container">
       <div class="section-header reveal">
@@ -790,7 +834,6 @@
     </div>
   </section>
 
-  <!-- CASE STUDY & SPEED TO LEAD -->
   <section class="case-study">
     <div class="container">
       <div class="section-header reveal">
@@ -841,7 +884,6 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
   <section class="benefits">
     <div class="container">
       <div class="benefits-grid">
@@ -889,7 +931,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="process" id="how-it-works">
     <div class="container">
       <div class="section-header reveal">
@@ -920,7 +961,6 @@
     </div>
   </section>
 
-  <!-- PRICING ANCHOR -->
   <section class="pricing-anchor">
     <div class="container">
       <div class="section-header reveal">
@@ -951,7 +991,6 @@
     </div>
   </section>
 
-  <!-- NOT FOR YOU & WHO THIS IS FOR -->
   <section class="not-for-you">
     <div class="container">
       <div class="nfy-grid">
@@ -1004,7 +1043,6 @@
     </div>
   </section>
 
-  <!-- AUTHORITY -->
   <section class="authority">
     <div class="container">
       <div class="authority-inner">
@@ -1026,7 +1064,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="faq">
     <div class="container">
       <div class="section-header reveal">
@@ -1073,7 +1110,6 @@
     </div>
   </section>
 
-  <!-- FOUNDER NOTE -->
   <section class="founder-note reveal">
     <div class="container">
       <div class="founder-card">
@@ -1098,7 +1134,6 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container container--narrow">
       <div class="reveal">
@@ -1115,19 +1150,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>© 2026 <a href="#">Meteor Media</a> · Dental Patient Acquisition · <a href="https://wa.me/7001225654" target="_blank">WhatsApp</a></p>
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP -->
   <a href="https://wa.me/7001225654?text=Hi%20Pritam%2C%20I'd%20like%20a%20free%20patient%20acquisition%20plan." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.405-.272.33-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .1 5.392.1 11.951c0 2.096.546 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.95-5.392 11.952-11.954a11.82 11.82 0 00-3.538-8.423z"/></svg>
   </a>
 
-  <!-- FLOATING SCROLL BUTTONS -->
   <div class="scroll-btn-group">
     <button class="scroll-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
       <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
